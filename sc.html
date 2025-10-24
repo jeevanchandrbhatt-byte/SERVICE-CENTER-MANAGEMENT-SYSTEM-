@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>service center</title>
+</head>
+
+<body>
+    <header>
+        <h2>FIND SERVICE CENTER</h2>
+    </header>
+    <main>
+        <button>SET YOUR LOCATION</button> <br><br>
+        <button>FIND SERVICE CENTER NEARBY</button><br><br>
+        <form action="END.html">
+            PICK A DATE:
+            <input type="date" id="todayDate">
+            <script>
+                const today = new Date().toISOString().split("T")[0];
+                document.getElementById("todayDate").setAttribute("min", today);
+            </script>
+            <br><br>
+            <input type="submit" value="PLACE SERVICE REQUEST">
+        </form>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>customer</title>
+</head>
+
+<body>
+    <header>
+        <h1>CUSTOMER</h1>
+        <h2>BOOK SERVICE</h2>
+    </header>
+    <main>
+        <form action="sc.html">
+            <h3>OWNER DETAILS</h3>
+            FULL NAME: <input type="text" placeholder="ENTER YOUR FULL NAME"><br>
+            <br> MOBILE NO.:<input type="number" minlength="10" maxlength="10" size="10"
+                placeholder="ENTER YOUR MOBILE NUMBER"><br>
+            <br>EMAIL ID: <input type="email" placeholder="ENTER YOUR EMAIL ID">
+            <br><br>ADDRESS: <input type="text" placeholder="COUNTRY">
+            <input type="text" placeholder="state">
+            <input type="text" placeholder="city">
+
+            <br>
+            <br>
+            <h3>VEHICLE DETAILS</h3><br>VEHICLE TYPE:
+            <input type="radio" value="CAR" name="vehical" id="car">
+            <label for="car">CAR</label>
+
+            <input type="radio" value="BIKE" name="vehical" id="bike">
+            <label for="bike">BIKE</label>
+
+            <div class="bikeOptions options">
+                <h3>BIKE DETAILS</h3>
+                <label>Brand:<select>
+                        <option>select.......</option>
+                        <option>Hero MotoCorp </option>
+                        <option>Honda Motorcycle & Scooter India (HMSI) </option>
+                        <option>TVS Motor Company</option>
+                        <option>Bajaj Auto</option>
+                        <option>Royal Enfield</option>
+                        <option>Yamaha Motor India</option>
+                        <option>Suzuki Motorcycle India</option>
+                        <option>KTM India</option>
+                        <option>Harley-Davidson India</option>
+                        <option>Jawa Motorcycles</option>
+                        <option>BMW Motorrad India</option>
+                        <option>Triumph Motorcycles India</option>
+                        <option>Ducati India</option>
+                        <option>Kawasaki India</option>
+                        <option>Ola Electric</option>
+                        <option>Ather Energy</option>
+                        <option>Revolt Motors</option>
+                        <option> TVS iQube (Electric Division)</option>
+                    </select>
+                    <br> <br>
+                    <label>Model: <input type="text"></label><br><br>
+                    <label>Type:<select>
+                            <option>Petrol</option>
+                            <option>Electric</option>
+                        </select>
+
+
+                    </label>
+                    <br><br>
+                    <label>Registration no.<input type="text" placeholder="UKO4MF4477"></label><br><br>
+                    <label>Odometer reading(current km).<input type="number"></label><br><br>
+                    <label>VIN or Chassis number:<input type="text" placeholder="1HGCM82633A123456"></label><br><br>
+                    <label>Date of Purchase<input type="date" min="2000-01-01" id="todayDate"></label>
+                    <script>
+                        const today = new Date().toISOString().split("T")[0];
+                        document.getElementById("todayDate").setAttribute("max", today);
+                    </script><br><br>
+                    <label>Service Type:
+                        <select>
+                        <option >select.....</option>
+                        <option>general/perodic service</option>
+                        <option>Full check-up</option>
+                        <option>Mechanical/Repair Services</option>
+                        <option>Electric and Diagnostic Services</option>
+                        <option>Cleaning & Detailing</option>
+                        <option>Body & Paint Work</option>
+                        <option>Insurance and Accident Services</option>
+                        <option>Specialized Services</option>
+                        
+
+                        <option>air filter change</option>
+                        <option>oil change</option>
+                        <option>engine repair or tuning</option>
+                        <option>clutch and gearbox service</option>
+                        <option>brake service/ replacement</option>
+                        <option>suspension and steering work </option>
+                        <option>battery check/replacement</option>
+                        <option>ac check & gas refill</option>
+                        <option>starter/alternative repair</option>
+                        <option>Lighting & Wiring Issue</option>
+                        <option>Electric Diagnostic Scan (OBD Scanning)</option>
+                        </select>
+                    </label>
+                    Or 
+                    <label>
+                        Describe The Problem(if any):<input type="text", placeholder="Engin making noise,........................">
+                    </label>
+            </div>
+
+            <div class="carOptions options">
+                <h3>CAR DETAILS</h3>
+                <label>Brand:<select>
+                        <option>select.......</option>
+                        <option>Tata Motors</option>
+                        <option>Mahindra & Mahindra</option>
+                        <option>Maruti Suzuki</option>
+                        <option>Ashok Leyland</option>
+                        <option>Eicher Motors</option>
+                        <option>Force Motors</option>
+                        <option>Bajaj Auto</option>
+                        <option>ICML (International Cars & Motors Ltd.)</option>
+                        <option>Kerala Automobiles Limited</option>
+                        <option>Tara International</option>
+                        <option>Hindustan Motors</option>
+                        <option>Hradyesh</option>
+                        <option>BMW India</option>
+                        <option>Mini India</option>
+                        <option>Citroën India</option>
+                        <option>FCA India</option>
+                        <option>Honda Cars India</option>
+                        <option>Hyundai Motor India</option>
+                        <option>Kia India</option>
+                        <option>Isuzu Motors India</option>
+                        <option>Jaguar Land Rover India</option>
+                        <option>Mercedes-Benz India</option>
+                        <option>JSW MG Motor India</option>
+                        <option>Nissan Motor India</option>
+                        <option>Renault India</option>
+                        <option>Toyota Kirloskar Motor</option>
+                        <option>Lexus India</option>
+                        <option>Volkswagen India</option>
+                        <option>Audi India</option>
+                        <option>Porsche India</option>
+                        <option>Škoda India</option>
+                    </select>
+                    <br> <br>
+                    <label>Model: <input type="text"></label><br><br>
+                    <label>Fuel Type:
+                        <select>
+                            <option>Petrol</option>
+                            <option>Diesel</option>
+                            <option>Electric</option>
+                        </select>
+                    </label>
+                    <br><br>
+                    <label>Registration no.<input type="text" placeholder="UKO4MF4477"></label><br><br>
+                    <label>Odometer reading(current km).<input type="number"></label><br><br>
+                    <label>VIN or Chassis number:<input type="text" placeholder="1HGCM82633A123456"></label><br><br>
+                    <label>Date of Purchase<input type="date" min="2000-01-01" id="todayDate"></label>
+                    <script>
+                        const toda1 = new Date().toISOString().split("T")[0];
+                        document.getElementById("todayDate").setAttribute("max", today);
+                    </script><br><br>
+                    <label>Service Type:
+                        <select>
+                        <option >select.....</option>
+                        <option>general/perodic service</option>
+                        <option>Full check-up</option>
+                        <option>Mechanical/Repair Services</option>
+                        <option>Electric and Diagnostic Services</option>
+                        <option>Cleaning & Detailing</option>
+                        <option>Body & Paint Work</option>
+                        <option>Insurance and Accident Services</option>
+                        <option>Specialized Services</option>
+
+                        <option>air filter change</option>
+                        <option>oil change</option>
+                        <option>engine repair or tuning</option>
+                        <option>clutch and gearbox service</option>
+                        <option>brake service/ replacement</option>
+                        <option>suspension and steering work </option>
+                        <option>battery check/replacement</option>
+                        <option>starter/alternative repair</option>
+                        <option>Lighting & Wiring Issue</option>
+                        <option>Electric Diagnostic Scan (OBD Scanning)</option>
+                        </select>
+                    </label>
+                    Or 
+                    <label>
+                        Describe The Problem(if any):<input type="text", placeholder="Engin making noise,........................">
+                    </label>
+            </div>
+
+            <style>
+                .options {
+                    display: none;
+                    margin-top: 10px;
+                }
+
+                #bike:checked~.bikeOptions {
+                    display: block;
+                }
+
+                #car:checked~.carOptions {
+                    display: block;
+                }
+
+                label {
+                    margin-right: 10px;
+                }
+            </style>
+            <br><br>
+            <input type="submit" value="SUBMIT">
+        </form>
+    </main>
+</body>
+
+</html>
