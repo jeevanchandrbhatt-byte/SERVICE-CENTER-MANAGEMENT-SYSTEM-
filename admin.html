@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <style>
+        /* ==================
+   GLOBAL & LOGIN STYLES
+   ================== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    color: #333;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e9ecef;
+}
+
+.login-form {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+.login-form h2 {
+    margin-top: 0;
+    color: #212529;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.input-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Important for padding */
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    width: 100%;
+}
+.btn:hover {
+    background-color: #0056b3;
+}
+.btn-primary { background-color: #007bff; }
+.btn-danger { background-color: #dc3545; }
+.btn-success { background-color: #28a745; }
+
+/* ==================
+   DASHBOARD LAYOUT
+   ================== */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: #212529;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+.sidebar-header {
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+.sidebar-header h3 {
+    margin: 0;
+}
+.sidebar nav {
+    flex-grow: 1;
+}
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    color: #f1f1f1;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.sidebar nav a:hover, .sidebar nav a.active {
+    background: #495057;
+}
+.sidebar nav a .material-symbols-outlined {
+    margin-right: 10px;
+}
+.sidebar nav a.logout {
+    margin-top: auto;
+    border-top: 1px solid #444;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto; /* Makes content scrollable */
+}
+
+.main-content header {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-section {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+.dashboard-section h2 {
+    margin-top: 0;
+}
+
+/* Stats Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+.stat-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+.stat-card h4 {
+    margin: 0 0 10px 0;
+}
+.stat-card p {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    color: #007bff;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+table th, table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+table th {
+    background: #f8f9fa;
+}
+table .btn {
+    width: auto; /* Override login button width */
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    margin-right: 5px;
+}
+
+/* Inline Form */
+.inline-form {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.inline-form h3 { margin: 0; }
+.inline-form input { padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; }
+.inline-form .btn { width: auto; }
+
+/* Feedback List */
+.feedback-item {
+    border: 1px solid #eee;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.feedback-item p {
+    margin: 0.5rem 0;
+}
+.feedback-item strong {
+    color: #333;
+}
+.feedback-item em {
+    color: #555;
+    font-style: italic;
+}
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Panel</h3>
+            </div>
+            <nav>
+                <a href="#overview" class="active">
+                    <span class="material-symbols-outlined">dashboard</span> Overview
+                </a>
+                <a href="#bookings">
+                    <span class="material-symbols-outlined">book_online</span> Manage Bookings
+                </a>
+                <a href="#centers">
+                    <span class="material-symbols-outlined">store</span> Manage Service Centers
+                </a>
+                <a href="#feedback">
+                    <span class="material-symbols-outlined">reviews</span> View Feedback
+                </a>
+                <a href="index.html" class="logout">
+                    <span class="material-symbols-outlined">logout</span> Logout
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>Welcome, Admin!</h1>
+            </header>
+
+            <section id="overview" class="dashboard-section">
+                <h2>Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Pending Bookings</h4>
+                        <p>12</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Total Service Centers</h4>
+                        <p>8</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>New Feedback</h4>
+                        <p>5</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="bookings" class="dashboard-section">
+                <h2>Manage Bookings</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Customer</th>
+                            <th>Vehicle No.</th>
+                            <th>Service</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>BK-1024</td>
+                            <td>Rohan Sharma</td>
+                            <td>UK07-D1234</td>
+                            <td>Full Service</td>
+                            <td>Pending</td>
+                            <td>
+                                <button class="btn btn-primary">Approve</button>
+                                <button class="btn btn-danger">Cancel</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BK-1023</td>
+                            <td>Priya Singh</td>
+                            <td>UK07-F5678</td>
+                            <td>Oil Change</td>
+                            <td>In Progress</td>
+                            <td>
+                                <button class="btn btn-success">Complete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="centers" class="dashboard-section">
+                <h2>Manage Service Centers</h2>
+                
+                <form action="#" class="inline-form">
+                    <h3>Add New Center</h3>
+                    <input type="text" placeholder="Center Name" required>
+                    <input type="text" placeholder="Location (e.g., 30.31, 78.03)" required>
+                    <button type="submit" class="btn btn-success">Add Center</button>
+                </form>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Center ID</th>
+                            <th>Name</th>
+                            <th>Location (Lat, Lon)</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SC-001</td>
+                            <td>GEU Service Hub</td>
+                            <td>30.3165, 78.0322</td>
+                            <td><button class="btn btn-danger">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>SC-002</td>
+                            <td>Rajpur Road Service</td>
+                            <td>30.3600, 78.0600</td>
+                            <td><button class="btn btn-danger">Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="feedback" class="dashboard-section">
+                <h2>View Feedback</h2>
+                <div class="feedback-list">
+                    <div class="feedback-item">
+                        <p><strong>From:</strong> Daksh Garg (BK-1020)</p>
+                        <p><strong>Rating:</strong> 5/5</p>
+                        <p><em>"Great service! Very fast and professional."</em></p>
+                    </div>
+                    <div class="feedback-item">
+                        <p><strong>From:</strong> Shivangi (BK-1019)</p>
+                        <p><strong>Rating:</strong> 3/5</p>
+                        <p><em>"Took too long for a simple oil change."</em></p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
